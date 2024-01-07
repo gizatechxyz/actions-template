@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "{{ cookiecutter.project_name }}"
+name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 description = "Giza Actions SDK project"
 authors = ["Giza <contact@gizatech.xyz>"]
