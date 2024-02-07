@@ -1,25 +1,33 @@
-# My Project
+# MNIST Example Template
 
-This project is generated with a cookiecutter template designed for Giza Actions SDK projects. More in depth documentation can be found [here](https://actions.gizatech.xyz/welcome/giza-actions-sdk).
+Welcome to the Giza Actions SDK template! The [Giza Actions SDK](https://actions.gizatech.xyz/welcome/giza-actions-sdk) is tailored to assist you in designing your ZKML workflows efficiently. This project provides pre-configured actions ready for deployment on the Giza platform. The purpose of this template is to demonstrate how to construct your ZKML workflows using the Giza Actions SDK.
 
-## Features
-
-- Preprocessing and inference actions defined using Giza Actions SDK.
-- Easy deployment and integration with Giza platform.
-- Example of an action training a pytorch model and converting it to onnx
-- Example of running an action which makes a prediction with the onnx model
-- Example of an action which makes a veerifiable prediction with the transpiled model
-
-*Note: examples are based on the [MNIST tutorial](https://actions.gizatech.xyz/tutorials/build-a-verifiable-neural-network-with-giza-actions) and there are steps that must be performed between actions execution like transpiling hte model and deploy the generated model. For more in depth steps check it out*
+*Note: This template is based on the [MNIST tutorial](https://actions.gizatech.xyz/tutorials/build-a-verifiable-neural-network-with-giza-actions). Please be aware that certain steps, such as transpiling the model and deploying the generated model on Giza Plateform, are required between action executions. For a more comprehensive understanding, refer to the tutorial.*
 
 ## Requirements
-
 - Python 3.11
-- Giza Actions SDK
+- Poetry
+
+## Get Started
+```bash
+$ poetry shell
+$ poetry install
+```
+
+## Structure
+Within the `{{cookiecutter.project_slug}}` directory, you'll discover multiple generated files:
+- `train_action.py`: Contains actions for training your model.
+- `predict_onnx_action.py`: Includes actions for making predictions with an ONNX model.
+- `predict_cairo_action.py`: Includes actions for making verifiable predictions with the Orion Cairo model.
 
 ## Usage
-
 To use this project, follow these steps:
-1. Clone the repository to your local machine.
-2. Install the required dependencies.
-3. Run any of the provided actions script with the command `python {{cookiecutter.project_slug}}/{action_file}.py`.
+1. Install the required dependencies.
+2. Execute any of the provided action scripts using the command `python {{cookiecutter.project_slug}}/{action_file}.py`, for example, `python {{cookiecutter.project_slug}}/{train_action}.py`.
+
+## Learn More
+Explore more about the Giza Actions SDK [here](https://actions.gizatech.xyz/welcome/giza-actions-sdk).
+
+## Acknowledgement
+This template was generated using cookiecutter.
+
