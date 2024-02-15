@@ -11,22 +11,20 @@ MODEL_ID = ...  # Update with your model ID
 VERSION_ID = ...  # Update with your version ID
 
 
-@task(name="Prediction with Cairo")
+@task(name='Prediction with Cairo')
 def prediction(image, model_id, version_id):
     model = GizaModel(id=model_id, version=version_id)
 
     (result, request_id) = model.predict(
-        input_feed={"image": image}, verifiable=True, output_dtype="tensor_fixed_point"
+        input_feed={"image": image}, verifiable=True, output_dtype="Tensor<FP16x16>"
     )
 
     # Convert result to a PyTorch tensor
-    result_tensor = torch.tensor(result)
-    # Apply softmax to convert to probabilities
-    probabilities = F.softmax(result_tensor, dim=1)
+    probabilities = torch.tensor(result)
     # Use argmax to get the predicted class
     predicted_class = torch.argmax(probabilities, dim=1)
 
-    return predicted_class.item(), request_id
+    return predicted_class, request_id
 
 
 @action(name="Execution: Prediction with Cairo", log_prints=True)
