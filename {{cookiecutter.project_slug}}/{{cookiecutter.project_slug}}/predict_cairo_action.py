@@ -13,7 +13,7 @@ def prediction(image, model_id, version_id):
     model = GizaModel(id=model_id, version=version_id)
 
     (result, request_id) = model.predict(
-        input_feed={"image": image}, verifiable=True, output_dtype="arr_fixed_point"
+        input_feed={"image": image}, verifiable=True, output_dtype="Tensor<FP16x16>"
     )
 
     return result, request_id

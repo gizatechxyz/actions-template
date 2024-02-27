@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-giza-actions = "^0.1.0"
+giza-actions = ">=0.2.1,<1.0.0"
 giza-datasets = "^0.1.0"
 torch = "^2.1.2"
 torchvision = "^0.16.2"
